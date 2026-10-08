@@ -1,0 +1,28 @@
+# Secrets
+.env
+backend/.env
+frontend/.env.local
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/*.egg-info/
+*.pyc
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/next-env.d.ts
+frontend/tsconfig.tsbuildinfo
+
+# Local uploads (receipt images - never commit real receipts)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Eval receipt images are redacted before commit, but raw/unredacted stay out
+evals/receipts/*.raw.*
+
+# OS
+.DS_Store

@@ -1,0 +1,16 @@
+# Week 1: Postgres only. Redis/worker services arrive in Phase 3 (see docs/brief.md).
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shelflife
+      POSTGRES_PASSWORD: shelflife
+      POSTGRES_DB: shelflife
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

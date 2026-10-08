@@ -1,0 +1,48 @@
+[project]
+name = "shelflife-ai-backend"
+version = "0.1.0"
+description = "ShelfLife AI backend: receipt extraction, pantry tracking, reminders."
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg2-binary>=2.9",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.5",
+    "anthropic>=0.40",
+    "python-multipart>=0.0.12",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",
+    "ruff>=0.7",
+    "black>=24.10",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "FURB", "DTZ"]
+ignore = [
+    "B008",   # Depends(...) in defaults is the standard FastAPI DI pattern
+    "DTZ011", # date.today() is intentional - we track calendar dates, not instants
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
