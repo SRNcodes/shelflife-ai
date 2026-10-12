@@ -9,6 +9,7 @@ backend/__pycache__/
 backend/**/__pycache__/
 backend/.pytest_cache/
 backend/*.egg-info/
+backend/.ruff_cache/
 *.pyc
 
 # Node / Next.js
